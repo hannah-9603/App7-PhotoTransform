@@ -24,10 +24,10 @@
   http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
   
   Brief Description of Goal of Code:
-  blah, blah, blah,
+  The goal of this code is to output the image in the first canvas to display blue pixels.
  
   Known Issues:
-  blah, blah, blah, blah
+  None.
 -->
 
  <head>
@@ -104,7 +104,15 @@
           
           var canvas2 = document.getElementById('myCanvas2');//This code finds the second canvas element.
           var canvas2Context = canvas2.getContext("2d");//This code draws context.
-
+          
+         const imageData = ctx.getImageData(0, 0, originalCanvas.width, originalCanvas.height);
+         const data = imageData.data;
+            for (let i = 0; i < data.length; i += 4) {
+                data[i] = 0;      
+                data[i + 1] = 0; 
+   
+            }
+            ctx.putImageData(imageData, 0, 0);
           
           
         } // end of img.onload
