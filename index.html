@@ -102,17 +102,15 @@
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
           
-          var canvas2 = document.getElementById('myCanvas2');//This code finds the second canvas element.
-          var canvas2Context = canvas2.getContext("2d");//This code draws context.
           
-         const imageData = ctx.getImageData(0, 0, originalCanvas.width, originalCanvas.height);
-         const data = imageData.data;
+          const imageData = canvas2Context.getImageData(0, 0, 600, 500);//This code copies the pixel data onto the imageData object//
+          const data = imageData.data;
             for (let i = 0; i < data.length; i += 4) {
-                data[i] = 0;      
-                data[i + 1] = 0; 
+                data[i] = 0; //This code sets the red pixels to 0//     
+                data[i + 1] = 0; //This code sets the green pixels to 0//     
    
             }
-            ctx.putImageData(imageData, 0, 0);
+            canvas2Context.putImageData(imageData, 0, 0);//This code inserts the image with only blue pixels//
           
           
         } // end of img.onload
@@ -152,6 +150,15 @@
         context.fillStyle = "black";
         context.fillText("Original image will go here", 10, 20);
       </script>
+        
+     <canvas id="canvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+     <script> /*This script initiates canvas 2 and puts the test on the canvas 'myCanvas2' */
+        var canvas2 = document.getElementById('myCanvas2'); 
+        var canvasContext2 = canvas2.getContext("2d")
+        canvasContext2.font = '20pt Calibri'; //This sets the text font, which is the same as canvas 1//
+        canvasContext2.fillStyle = "black"; //This sets the text color, which is the same as canvas 1//
+        canvasContext2.fillText("Filtered image's location", 10, 20); //This sets the identifying text//
+     </script>
 
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
