@@ -103,8 +103,8 @@
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
           
           var canvas2 = document.getElementById('myCanvas2'); 
-          var canvasContext2 = canvas2.getContext("2d");
-          const imageData = canvas2Context.getImageData(0, 0, 600, 500);//This code copies the pixel data onto the imageData object//
+          var context2 = canvas2.getContext("2d");
+          const imageData = context.getImageData(0, 0, 600, 500);//This code copies the pixel data onto the imageData object//
           const data = imageData.data;
             for (let i = 0; i < data.length; i += 4) {
                 data[i] = 0; //This code sets the red pixels to 0//     
